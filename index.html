@@ -7706,8 +7706,13 @@ for (var publicModule in Elm)
         <script>
          var app = Elm.Main.fullscreen();
 
-         app.ports.getInc.subscribe(function(x) {
-             app.ports.gotInc.send(x + 1);
+         app.ports.getInc.subscribe(function(xs) {
+             console.log(xs);
+             app.ports.gotInc.send(
+                 [ xs[0] + 1 // the value
+                 , xs[1]     // threadId
+                 ]
+             );
          });
         </script>
     </body>

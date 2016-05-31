@@ -15,9 +15,12 @@
          var app = Elm.Main.fullscreen();
 
          app.ports.getInc.subscribe(function(xs) {
-             app.ports.gotInc.send([ xs[0] + 1 // the value
-                                   , xs[1]     // threadId
-                                   ]);
+             console.log(xs);
+             app.ports.gotInc.send(
+                 [ xs[0] + 1 // the value
+                 , xs[1]     // threadId
+                 ]
+             );
          });
         </script>
     </body>
